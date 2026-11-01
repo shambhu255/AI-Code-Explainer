@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeVora AI — Code Explainer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">C</span><div><strong>CodeVora AI</strong><small>Code Explainer & Documentation Generator</small></div></div>
+  <span class="status"><i></i> AI workspace</span>
+</header>
+<main class="layout">
+  <section class="intro">
+    <p class="eyebrow">AI-POWERED DEVELOPER TOOL</p>
+    <h1>Understand code.<br><span>Build with confidence.</span></h1>
+    <p class="lead">Paste your source code and let AI explain it, summarize it, add comments, review possible bugs, or prepare documentation.</p>
+  </section>
+  <section class="workspace">
+    <div class="panel editor-panel">
+      <div class="panel-heading"><div><span class="step">01</span><strong>Source code</strong></div><span class="muted">Paste or upload</span></div>
+      <div class="toolbar">
+        <select id="language" aria-label="Programming language">
+          <option>Auto-detect</option><option>Python</option><option>Java</option><option>C</option><option>C++</option><option>JavaScript</option><option>TypeScript</option><option>PHP</option><option>Go</option><option>Ruby</option>
+        </select>
+        <label class="upload">↑ Upload file<input type="file" id="file" accept=".py,.java,.c,.cpp,.h,.hpp,.js,.ts,.php,.go,.rb,.txt"></label>
+        <button class="text-button" id="clear">Clear</button>
+      </div>
+      <textarea id="code" spellcheck="false" placeholder="Paste your code here...&#10;&#10;Example:&#10;def greet(name):&#10;    return f'Hello, {name}!'"></textarea>
+      <div class="editor-footer"><span id="charCount">0 characters</span><span>Do not paste passwords or API keys</span></div>
+      <div class="actions">
+        <button class="primary" data-task="explain">Explain code <span>→</span></button>
+        <button class="secondary" data-task="summarize">Summarize</button>
+        <button class="secondary" data-task="comments">Add comments</button>
+      </div>
+      <div class="more-actions">
+        <button data-task="documentation">Generate documentation</button>
+        <button data-task="bugs">Review possible bugs</button>
+        <button data-task="questions">Create viva questions</button>
+      </div>
+    </div>
+    <section class="panel output-panel">
+      <div class="panel-heading"><div><span class="step">02</span><strong>AI result</strong></div><button id="copy" class="text-button" disabled>Copy result</button></div>
+      <div id="output" class="output">
+        <div class="empty-icon">✦</div>
+        <h3>Your result will appear here</h3>
+        <p>Choose an action above to analyse your code.</p>
+      </div>
+      <div id="error" class="error" hidden></div>
+      <div class="output-footer">AI-generated responses can contain mistakes. Review before using.</div>
+    </section>
+  </section>
+  <footer>CodeVora AI · A student-friendly code understanding tool</footer>
+</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
